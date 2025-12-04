@@ -1,6 +1,6 @@
 # Flood Detection Using Deep Learning & Satellite Imagery
 
-**IndabaX DRC 2025 Workshop** - A comprehensive guide to building and deploying AI-powered flood detection systems using Sentinel-1 satellite imagery.
+**IndabaX DRC 2025 Workshop** - A comprehensive guide to building and deploying AI-powered flood detection systems using Sentinel-1&2 satellite imagery.
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg) ![Python](https://img.shields.io/badge/Python-3.8+-green.svg) ![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)
 
@@ -43,14 +43,6 @@ By completing this workshop, you will understand:
   - Multiple model architectures (CNN, ViT)
   - Ensemble techniques (voting, stacking, CNN aggregators)
   - Comprehensive evaluation and ablation studies
-
-### Supporting Files
-
-- `access_kaggle_dataset.py` - Utility for downloading datasets
-- `KAGGLE_SETUP_GUIDE.md` - Step-by-step Kaggle API configuration
-- `VISUAL_GUIDE.md` - Visual explanations of satellite data
-- `LICENSE` - MIT License
-
 ---
 
 ## 🚀 Quick Start
@@ -156,22 +148,6 @@ Execute cells sequentially from top to bottom. Each section includes educational
 
 ---
 
-## 💻 System Requirements
-
-### Minimum (CPU-only)
-- 8GB RAM
-- 20GB disk space
-- Python 3.8+
-- Training time: 8-12 hours per model
-
-### Recommended (GPU)
-- NVIDIA GPU with 8GB+ VRAM (RTX 3060 or better)
-- 16GB+ system RAM
-- 30GB SSD storage
-- Training time: 1-2 hours per model
-
----
-
 ## 📈 Results Summary
 
 ### Individual Models
@@ -183,7 +159,7 @@ Execute cells sequentially from top to bottom. Each section includes educational
 ### Ensemble Methods
 - Hard Voting: **95.4%** accuracy
 - Soft Voting: **95.5%** accuracy
-- Stacking (Logistic Regression): **95.6%** accuracy ✅ **Best overall**
+- Stacking (Logistic Regression): **95.6%** accuracy **Best overall**
 
 ### Performance by Metric
 - Accuracy: 95.6% (overall correctness)
