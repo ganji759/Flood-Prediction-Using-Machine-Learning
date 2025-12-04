@@ -1,6 +1,6 @@
 # Flood Detection Using Deep Learning & Satellite Imagery
 
-**IndabaX DRC 2025 Workshop** - A comprehensive guide to building and deploying AI-powered flood detection systems using Sentinel-1 satellite imagery.
+**IndabaX DRC 2025 Workshop** - A comprehensive guide to building and deploying AI-powered flood detection systems using Sentinel-1&2 satellite imagery.
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg) ![Python](https://img.shields.io/badge/Python-3.8+-green.svg) ![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)
 
