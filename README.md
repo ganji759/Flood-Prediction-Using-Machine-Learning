@@ -37,12 +37,10 @@ By completing this workshop, you will understand:
 
 ### Notebooks
 
-- **`Workshop DAY 1.ipynb`** - Complete end-to-end pipeline including:
-  - Dataset download and exploration (SEN12FLOOD from Kaggle)
-  - Satellite image preprocessing (SAR speckle reduction, CLAHE enhancement)
-  - Multiple model architectures (CNN, ViT)
-  - Ensemble techniques (voting, stacking, CNN aggregators)
-  - Comprehensive evaluation and ablation studies
+- **`Workshop DAY 1.ipynb`** - End-to-end pipeline: data download, preprocessing,
+   model training, ensembling, and evaluation.
+- **`Workshop Session 1.ipynb`** - Supplementary session: focused exercises,
+   visualizations, and guided walkthroughs for key notebook sections.
 ---
 
 ## 🚀 Quick Start
