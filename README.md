@@ -37,10 +37,8 @@ By completing this workshop, you will understand:
 
 ### Notebooks
 
-- **`Workshop DAY 1.ipynb`** - End-to-end pipeline: data download, preprocessing,
-   model training, ensembling, and evaluation.
-- **`Workshop Session 1.ipynb`** - Supplementary session: focused exercises,
-   visualizations, and guided walkthroughs for key notebook sections.
+- **`Workshop DAY 1.ipynb`** — Intro to image classification with PyTorch. Based on the official PyTorch tutorial, this notebook presents a complete machine-learning workflow (data loading, augmentation, model training, evaluation, and export) and includes additional utilities, experiments, and best-practice tips used in the workshop.
+- **`Workshop Session 1.ipynb`** — In-depth flood-prediction exploration. Focuses on preparing and analyzing the SEN12FLOOD dataset (Kaggle), region-wise experiments, model comparisons, and visualizations for interpreting flood predictions.
 ---
 
 ## 🚀 Quick Start
@@ -107,17 +105,6 @@ Execute cells sequentially from top to bottom. Each section includes educational
 
 ## 🔬 Methodology
 
-### Architecture Comparison
-
-| Model | Parameters | FLOPs | Accuracy | Use Case |
-|-------|-----------|-------|----------|----------|
-| **ResNet-50** | 25M | 8G | 94.6% | Baseline CNN |
-| **DenseNet-121** | 7M | 3G | 94.9% | Efficient CNN |
-| **EfficientNet-B0** | 5M | 0.4G | 95.1% | Mobile deployment |
-| **ViT-B/16** | 86M | 17G | 93.5% | Transformer-based |
-| **Soft Voting** | - | - | 95.5% | Best ensemble |
-| **Stacking (LR)** | - | - | 95.6% | Meta-learning |
-
 ### Key Techniques
 
 1. **Data Preprocessing**
@@ -166,60 +153,6 @@ Execute cells sequentially from top to bottom. Each section includes educational
 - F1-Score: 95.5% (harmonic mean)
 
 **95% Confidence Intervals**: Computed via bootstrap resampling (1000 iterations)
-
----
-
-## 🛠 Usage Guide
-
-### For Beginners
-1. Start with "GPU Verification" to check your setup
-2. Run dataset download cells
-3. Execute visualization cells to understand satellite data
-4. Train a single model (e.g., ResNet-50)
-5. Review metrics and confusion matrices
-
-### For Intermediate Users
-1. Compare multiple model architectures
-2. Experiment with hyperparameters
-3. Implement custom preprocessing
-4. Modify data splits
-
-### For Advanced Users
-1. Implement custom ensemble methods
-2. Add new model architectures from `timm`
-3. Optimize for edge deployment (quantization, pruning)
-4. Extend to multi-label or segmentation tasks
-
----
-
-## 🔍 Notebook Structure
-
-```
-Workshop DAY 1.ipynb
-├── 00 - Introduction
-│   └── GPU verification & library imports
-├── 01 - Data Preprocessing
-│   ├── Dataset download (Kaggle)
-│   ├── Metadata parsing
-│   ├── Sensor classification
-│   ├── Image enhancement
-│   └── PyTorch dataset pipeline
-├── 02 - Model Training
-│   ├── ResNet-50
-│   ├── DenseNet-121
-│   ├── EfficientNet-B0
-│   └── Vision Transformer
-├── 03 - Ensemble Methods
-│   ├── Hard/Soft voting
-│   ├── Stacking (LR, XGBoost, SVM)
-│   └── CNN aggregators
-└── 04 - Evaluation & Analysis
-    ├── Model profiling
-    ├── Latency analysis
-    ├── Bootstrap confidence intervals
-    └── Ablation studies
-```
-
 ---
 
 ## 📚 Theoretical Background
@@ -238,13 +171,6 @@ Workshop DAY 1.ipynb
 - Limited by cloud cover
 - Reference: [ESA Sentinel-2 Mission](https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-2)
 
-### Deep Learning Concepts
-
-- **Transfer Learning**: Leverage ImageNet pretraining to reduce data requirements
-- **Mixed Precision**: Train with FP16 for 2-4× speedup while maintaining FP32 numerical stability
-- **Ensemble Methods**: Combine predictions from multiple models for improved robustness
-- **Stacking**: Train meta-model to learn optimal combination of base models
-
 ---
 
 ## 🚨 Real-World Applications
@@ -258,29 +184,6 @@ This system is designed for:
 5. **Urban Planning**: Identify flood-prone regions
 
 **Example**: During the 2025 Kinshasa floods, similar systems provided real-time impact maps to UNOSAT for emergency coordination.
-
----
-
-## ⚙️ Advanced Topics
-
-### Model Optimization
-- Quantization (INT8) for 2× speedup
-- Knowledge distillation to smaller models
-- Pruning to reduce parameters
-- Batch normalization folding
-
-### Deployment
-- TensorRT optimization
-- ONNX model export
-- Docker containerization
-- Cloud deployment (AWS, GCP, Azure)
-
-### Extensions
-- Multi-label classification (flood type)
-- Semantic segmentation (pixel-level masks)
-- Temporal modeling (flood progression)
-- Uncertainty quantification
-
 ---
 
 ## 🤝 Contributing
