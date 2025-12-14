@@ -1,226 +1,102 @@
 # Flood Detection Using Deep Learning & Satellite Imagery
-
-**IndabaX DRC 2025 Workshop** - A comprehensive guide to building and deploying AI-powered flood detection systems using Sentinel-1&2 satellite imagery.
+**IndabaX DRC 2025 Workshop**
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg) ![Python](https://img.shields.io/badge/Python-3.8+-green.svg) ![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)
+
+A comprehensive workshop series designed to take you from machine learning fundamentals to deploying AI-powered disaster response systems using Sentinel-1 & 2 satellite imagery.
 
 ---
 
 ## 📋 Overview
 
-This workshop provides a hands-on introduction to disaster risk monitoring through deep learning. You'll learn to:
+This repository offers a two-step learning path:
+1.  **Foundations:** An introduction to deep learning using the PyTorch framework and the FashionMNIST dataset.
+2.  **Application:** A deep dive into building a **95%+ accurate flood detection system** using multi-modal satellite data and ensemble learning.
 
-- **Process satellite data** from Copernicus Sentinel-1 (SAR) and Sentinel-2 (optical)
-- **Build & train models** using transfer learning (ResNet-50, DenseNet-121, EfficientNet-B0, Vision Transformer)
-- **Ensemble predictions** with hard voting, soft voting, and stacking techniques
-- **Deploy models** efficiently on GPU with mixed precision training
-- **Evaluate performance** using bootstrap confidence intervals and ablation studies
-
-**Key Achievement**: Develop a **95%+ accurate flood detection classifier** combining multiple deep learning architectures.
-
----
-
-## 🎯 Learning Objectives
-
-By completing this workshop, you will understand:
-
-1. **Disaster Risk Monitoring**: How satellite imagery enables rapid disaster response
-2. **Earth Observation**: Differences between SAR (Sentinel-1) and optical (Sentinel-2) data
-3. **Computer Vision**: Image preprocessing, enhancement, and deep learning classification
-4. **Model Development**: Transfer learning, hyperparameter tuning, and evaluation
-5. **Ensemble Methods**: Combining multiple models to improve robustness
-6. **Production Deployment**: Model profiling, optimization, and real-world considerations
-
----
-
-## 📦 What's Included
-
-### Notebooks
-
-- **`Workshop DAY 1.ipynb`** — Intro to image classification with PyTorch. Based on the official PyTorch tutorial, this notebook presents a complete machine-learning workflow (data loading, augmentation, model training, evaluation, and export) and includes additional utilities, experiments, and best-practice tips used in the workshop.
-- **`Workshop Session 1.ipynb`** — In-depth flood-prediction exploration. Focuses on preparing and analyzing the SEN12FLOOD dataset (Kaggle), region-wise experiments, model comparisons, and visualizations for interpreting flood predictions.
 ---
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-
-- Python 3.8+
-- NVIDIA GPU with CUDA support (CPU mode available but slower)
-- 15GB+ free disk space (for models and datasets)
+* Python 3.8+
+* NVIDIA GPU (Recommended)
+* 15GB+ Free Disk Space
 
 ### Installation
 
-1. **Clone the repository**:
-```bash
-git clone https://github.com/ganji759/Flood-Prediction-Using-Machine-Learning.git
-cd Flood-Prediction-Using-Machine-Learning
-```
+1.  **Clone the repository**:
+    ```bash
+    git clone [https://github.com/ganji759/Flood-Prediction-Using-Machine-Learning.git](https://github.com/ganji759/Flood-Prediction-Using-Machine-Learning.git)
+    cd Flood-Prediction-Using-Machine-Learning
+    ```
 
-2. **Create virtual environment** (recommended):
-```bash
-python -m venv flood_env
-source flood_env/bin/activate  # Linux/Mac
-# or
-flood_env\Scripts\activate  # Windows
-```
+2.  **Create environment**:
+    ```bash
+    python -m venv flood_env
+    source flood_env/bin/activate  # Windows: flood_env\Scripts\activate
+    ```
 
-3. **Install dependencies**:
-```bash
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-pip install pytorch-lightning transformers kagglehub rasterio opencv-python pandas matplotlib seaborn scikit-learn xgboost thop
-```
+3.  **Install dependencies**:
+    ```bash
+    # Install PyTorch (CUDA 11.8)
+    pip install torch torchvision torchaudio --index-url [https://download.pytorch.org/whl/cu118](https://download.pytorch.org/whl/cu118)
+    
+    # Install workshop libraries
+    pip install pytorch-lightning transformers kagglehub rasterio opencv-python pandas matplotlib seaborn scikit-learn xgboost thop
+    ```
 
-4. **Configure Kaggle API**:
-   - Download `kaggle.json` from [Kaggle Account Settings → API](https://www.kaggle.com/settings/account)
-   - Place in `~/.kaggle/kaggle.json` (or follow `KAGGLE_SETUP_GUIDE.md` for Windows)
-   - Set permissions: `chmod 600 ~/.kaggle/kaggle.json` (Linux/Mac)
-
-### Running the Workshop
-
-```bash
-jupyter notebook "Workshop DAY 1.ipynb"
-```
-
-Execute cells sequentially from top to bottom. Each section includes educational markdown explaining theory and implementation.
+4.  **Configure Data Access**:
+    * Download `kaggle.json` from your [Kaggle Account Settings](https://www.kaggle.com/settings/account).
+    * Place it in `~/.kaggle/kaggle.json` (Linux/Mac) or `C:\Users\<User>\.kaggle\` (Windows).
 
 ---
 
-## 📊 Dataset
+## 📦 The Notebooks
 
-**SEN12FLOOD** - Publicly available flood detection dataset
+Run `jupyter notebook` and select the file matching your goal:
 
-- **Source**: [Kaggle](https://www.kaggle.com/datasets/rhythmroy/sen12flood-flood-detection-dataset)
-- **Size**: ~10,000+ satellite scenes
-- **Sensors**: 
-  - Sentinel-1: C-band SAR (VV, VH polarizations)
-  - Sentinel-2: 11 multispectral bands (RGB, NIR, SWIR)
-- **Labels**: Binary (Flood / Non-Flood)
-- **Resolution**: 10m per pixel
-- **Coverage**: Global flood events
-
-**Data Split**: 70% training, 15% validation, 15% testing
+| Notebook File | Focus | Description |
+| :--- | :--- | :--- |
+| **`Workshop Session 1.ipynb`** | **Foundations** | **Start Here.** Based on official PyTorch tutorials. Introduces ML concepts, tensor operations, and image classification using the **FashionMNIST** dataset. |
+| **`Workshop DAY 1.ipynb`** | **Application** | **Deep Dive.** Focuses on disaster risk monitoring. Covers processing **Sentinel-1 (SAR) & Sentinel-2 (Optical)** data, training ensembles (ResNet, EfficientNet), and evaluating the **SEN12FLOOD** dataset. |
 
 ---
 
-## 🔬 Methodology
+## 🔬 Methodology (Flood Prediction)
 
-### Key Techniques
+In `Workshop DAY 1.ipynb`, we develop a robust classifier using the following techniques:
 
-1. **Data Preprocessing**
-   - Speckle noise reduction (median filtering for SAR)
-   - Percentile stretching (2-98%)
-   - CLAHE for local contrast enhancement
-   - Resizing to 224×224
-
-2. **Model Training**
-   - Transfer learning from ImageNet
-   - Mixed precision training (FP16/FP32)
-   - Early stopping with validation monitoring
-   - AdamW optimizer with weight decay
-
-3. **Ensemble Methods**
-   - Hard voting (majority vote)
-   - Soft voting (probability averaging)
-   - Stacking with meta-models (Logistic Regression, XGBoost, SVM)
-   - CNN-based aggregators on intermediate features
-
-4. **Evaluation**
-   - Bootstrap confidence intervals (95% CI)
-   - Sequential ablation studies
-   - Model profiling (parameters, FLOPs)
-   - Latency analysis (GPU vs CPU)
+* **Dataset:** [SEN12FLOOD](https://www.kaggle.com/datasets/rhythmroy/sen12flood-flood-detection-dataset) (~10,000 satellite chips).
+* **Preprocessing:** Speckle noise filtering (SAR), CLAHE, and Percentile stretching.
+* **Models:** ResNet-50, DenseNet-121, EfficientNet-B0, Vision Transformer (ViT).
+* **Ensembling:** Stacking (Logistic Regression meta-learner), Hard Voting, and Soft Voting.
+* **Performance:** Achieved **95.6% accuracy** (Stacking Ensemble).
 
 ---
 
-## 📈 Results Summary
+## 📚 References & Resources
 
-### Individual Models
-- ResNet-50: **94.6%** accuracy
-- DenseNet-121: **94.9%** accuracy
-- EfficientNet-B0: **95.1%** accuracy (best single model)
-- Vision Transformer: **93.5%** accuracy
+### Frameworks & Tools
+* [PyTorch](https://pytorch.org/) - Official documentation and tutorials.
+* [Copernicus Open Data Hub](https://scihub.copernicus.eu/) - Access point for Sentinel satellite data.
 
-### Ensemble Methods
-- Hard Voting: **95.4%** accuracy
-- Soft Voting: **95.5%** accuracy
-- Stacking (Logistic Regression): **95.6%** accuracy **Best overall**
+### Datasets
+* [Kaggle SEN12FLOOD](https://www.kaggle.com/datasets/rhythmroy/sen12flood-flood-detection-dataset) - Flood detection dataset (SAR + Optical).
+* [FashionMNIST](https://github.com/zalandoresearch/fashion-mnist) - Benchmarking dataset used in the intro session.
 
-### Performance by Metric
-- Accuracy: 95.6% (overall correctness)
-- Precision: 95.8% (false positive rate)
-- Recall: 95.6% (false negative rate - critical for disaster response)
-- F1-Score: 95.5% (harmonic mean)
+### Satellite Missions
+* [ESA Sentinel-1 Mission](https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-1) - Synthetic Aperture Radar (SAR) imagery specifics.
+* [ESA Sentinel-2 Mission](https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-2) - Optical multispectral imagery specifics.
 
-**95% Confidence Intervals**: Computed via bootstrap resampling (1000 iterations)
----
-
-## 📚 Theoretical Background
-
-### Satellite Data Types
-
-**Sentinel-1 (SAR)**
-- All-weather capability (works day/night, through clouds)
-- Water appears dark (specular reflection)
-- Ideal for flood detection
-- Reference: [ESA Sentinel-1 Mission](https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-1)
-
-**Sentinel-2 (Optical)**
-- 11 multispectral bands
-- Excellent for vegetation and land use mapping
-- Limited by cloud cover
-- Reference: [ESA Sentinel-2 Mission](https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-2)
-
----
-
-## 🚨 Real-World Applications
-
-This system is designed for:
-
-1. **Rapid Disaster Response**: Automated flood detection for emergency alerts
-2. **Impact Assessment**: Quantify flooded areas for humanitarian response
-3. **Climate Monitoring**: Track flood patterns over time
-4. **Insurance & Risk**: Assess flood risk for property valuation
-5. **Urban Planning**: Identify flood-prone regions
-
-**Example**: During the 2025 Kinshasa floods, similar systems provided real-time impact maps to UNOSAT for emergency coordination.
----
-
-## 🤝 Contributing
-
-We welcome contributions! Please:
-1. Fork the repository
-2. Create a feature branch
-3. Submit a pull request with detailed description
-
----
-
-## 📖 References
-
-### Papers
-- [ResNet (2015)](https://arxiv.org/abs/1512.03385) - Deep Residual Learning
-- [DenseNet (2017)](https://arxiv.org/abs/1608.06993) - Dense Connections
-- [EfficientNet (2019)](https://arxiv.org/abs/1905.11946) - Compound Scaling
-- [Vision Transformer (2021)](https://arxiv.org/abs/2010.11929) - Attention for Vision
-- [Ensemble Methods Survey](https://ieeexplore.ieee.org/document/5128974)
-
-### Resources
-- [Copernicus Open Data Hub](https://scihub.copernicus.eu/) - Free satellite data
-- [PyTorch Documentation](https://pytorch.org/docs/) - Deep learning framework
-- [QGIS](https://www.qgis.org/) - Open-source GIS for spatial analysis
-- [SEN12FLOOD Dataset Paper](https://arxiv.org/abs/2104.03704)
-
-### Organizations
-- [UNOSAT](https://www.unitar.org/unosat/) - UN Satellite Centre
-- [ESA](https://www.esa.int/) - European Space Agency
-- [UNDRR](https://www.undrr.org/) - UN Disaster Risk Reduction
+### Key Papers
+* [Deep Residual Learning for Image Recognition (ResNet)](https://arxiv.org/abs/1512.03385)
+* [SEN12FLOOD: A SAR and Multispectral Dataset for Flood Detection](https://arxiv.org/abs/2104.03704)
+* [EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks](https://arxiv.org/abs/1905.11946)
 
 ---
 
 ## 📝 License
 
-This project is licensed under the **MIT License** - see LICENSE file for details.
+This project is licensed under the **MIT License**.
 
----
-
-**Happy Learning!** 🚀 Use this knowledge to tackle climate challenges and disaster risk reduction in your region.
+Happy Learning! 🚀
